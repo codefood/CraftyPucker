@@ -8,7 +8,7 @@ namespace CraftyPucker.Data
 {
     public class GameRepository
     {
-        public List<Game> Games
+        public IEnumerable<Game> Games
         {
             get
             {
@@ -18,7 +18,7 @@ namespace CraftyPucker.Data
             }
         }
 
-        private List<Game> _games;
+        private IEnumerable<Game> _games;
 
         private void LoadGames()
         {
@@ -36,10 +36,13 @@ namespace CraftyPucker.Data
             };
             g1.Date = new DateTime(2016, 3, 13, 17, 0, 0);
             g1.GameType = GameType.Home;
-            g1.MediaFeedType = "HOME";
-            g1.MediaPlaybackId = "1234";
+            ((List<MediaFeed>)g1.MediaFeeds).Add(new MediaFeed
+            {
+                MediaFeedType = "HOME",
+                MediaPlaybackId = "1234"
+            });
 
-            _games.Add(g1);
+            ((List <Game>)_games).Add(g1);
 
 
             var g2 = new Game();
@@ -55,10 +58,13 @@ namespace CraftyPucker.Data
             };
             g2.Date = new DateTime(2016, 3, 13, 17, 0, 0);
             g2.GameType = GameType.Away;
-            g2.MediaFeedType = "VISIT";
-            g2.MediaPlaybackId = "1234";
+            ((List<MediaFeed>)g2.MediaFeeds).Add(new MediaFeed
+            { 
+                MediaFeedType = "VISIT",
+                MediaPlaybackId = "1234"
+            });
 
-            _games.Add(g2);
+            ((List<Game>)_games).Add(g2);
         }
 
     }

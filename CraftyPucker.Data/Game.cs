@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -7,30 +8,34 @@ using System.Threading.Tasks;
 
 namespace CraftyPucker.Data
 {
+    [DebuggerDisplay("{HomeTeam.Abbreviation} vs {AwayTeam.Abbreviation} ({Date})")]
     public class Game
     {
+        public Game()
+        {
+            MediaFeeds = new List<MediaFeed>();
+        }
+
         public DateTime Date { get; set;}
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
         public GameType GameType { get; set; }
+        public IEnumerable<MediaFeed> MediaFeeds { get; set; }
 
-        public string MediaFeedType { get; set; }
-
-        public string MediaPlaybackId { get; set; }
-
-
-       public Uri GetStreamURL(StreamType streamType)
+        public Uri GetUriForMediaFeed(StreamType streamType, MediaFeed mediaFeed)
         {
             if (HomeTeam == null)
                 throw new NullReferenceException("HomeTeam");
             if (AwayTeam == null)
                 throw new NullReferenceException("AwayTeam");
+            if (!MediaFeeds.Any())
+                throw new NullReferenceException("MediaFeeds");
 
             var baseUrl = GetBaseUrl(streamType);
 
-            var feedType = MediaFeedType;
+            var feedType = mediaFeed.MediaFeedType;
             if (GameType == GameType.Away)
-                feedType = MediaFeedType.Replace("AWAY", "VISIT");
+                feedType = mediaFeed.MediaFeedType.Replace("AWAY", "VISIT");
 
             var url = string.Format("{0}/{1}/NHL_GAME_VIDEO_{2}{3}_M2_{4}_{1}/master_wired60.m3u8",
                 baseUrl,

@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="GameBuilder.cs" />
     <Compile Include="GameTests.cs" />
+    <Compile Include="Loaders\JsonGameLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +61,11 @@
       <Project>{7F7A4A41-3720-4364-9BC7-6E04F6B2BA30}</Project>
       <Name>CraftyPucker.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

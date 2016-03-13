@@ -11,7 +11,28 @@ namespace CraftyPucker.Data.Tests
 
         private Team HomeTeam { get; set; }
         private Team AwayTeam { get; set; }
+        private MediaFeed MediaFeed { get; set; }
         private bool Home { get; set; }
+
+        public GameBuilder WithHomeMediaFeed()
+        {
+            this.MediaFeed = new MediaFeed
+            {
+                MediaFeedType = "HOME",
+                MediaPlaybackId = "1234"
+            };
+            return this;
+        }
+
+        public GameBuilder WithAwayMediaFeed()
+        {
+            this.MediaFeed = new MediaFeed
+            {
+                MediaFeedType = "VISIT",
+                MediaPlaybackId = "4321"
+            };
+            return this;
+        }
 
         public GameBuilder WithHomeTeam()
         {
@@ -51,19 +72,8 @@ namespace CraftyPucker.Data.Tests
             g1.HomeTeam = HomeTeam;
             g1.AwayTeam = AwayTeam;
             g1.Date = new DateTime(2016, 3, 13, 17, 0, 0);
-            g1.MediaPlaybackId = "1234";
-            if (Home)
-            {
-                g1.GameType = GameType.Home;
-                g1.MediaFeedType = "HOME";
-            }
-            else
-            {
-                g1.GameType = GameType.Away;
-                g1.MediaFeedType = "VISIT";
-            }
-            
-
+            if (MediaFeed != null)
+                ((List<MediaFeed>)g1.MediaFeeds).Add(MediaFeed);
 
             return g1;
         }

@@ -8,3 +8,10 @@ C:\Users\hobofood\Documents\Visual Studio 2015\Projects\CraftyPucker\CraftyPucke
 C:\Users\hobofood\Documents\Visual Studio 2015\Projects\CraftyPucker\CraftyPucker.Data\obj\Debug\CraftyPucker.Data.csprojResolveAssemblyReference.cache
 C:\Users\hobofood\Documents\Visual Studio 2015\Projects\CraftyPucker\CraftyPucker.Data\obj\Debug\CraftyPucker.Data.dll
 C:\Users\hobofood\Documents\Visual Studio 2015\Projects\CraftyPucker\CraftyPucker.Data\obj\Debug\CraftyPucker.Data.pdb
+C:\Users\hobofood\Documents\GitHub\CraftyPucker\CraftyPucker.Data\obj\Debug\CraftyPucker.Data.csprojResolveAssemblyReference.cache
+C:\Users\hobofood\Documents\GitHub\CraftyPucker\CraftyPucker.Data\obj\Debug\CraftyPucker.Data.dll
+C:\Users\hobofood\Documents\GitHub\CraftyPucker\CraftyPucker.Data\obj\Debug\CraftyPucker.Data.pdb
+C:\Users\hobofood\Documents\GitHub\CraftyPucker\CraftyPucker.Data\bin\Debug\CraftyPucker.Data.dll
+C:\Users\hobofood\Documents\GitHub\CraftyPucker\CraftyPucker.Data\bin\Debug\CraftyPucker.Data.pdb
+C:\Users\hobofood\Documents\GitHub\CraftyPucker\CraftyPucker.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hobofood\Documents\GitHub\CraftyPucker\CraftyPucker.Data\bin\Debug\Newtonsoft.Json.xml
