@@ -12,7 +12,7 @@ namespace CraftyPucker.UI
         {
             InitializeComponent();
             _gamesRepo = new GamesViewModel();
-            lbGames.ItemsSource = _gamesRepo.CollViewSource.View;
+            this.DataContext = _gamesRepo;
         }
     }
 }
