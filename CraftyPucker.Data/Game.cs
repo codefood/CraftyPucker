@@ -13,14 +13,29 @@ namespace CraftyPucker.Data
     {
         public Game()
         {
-            MediaFeeds = new Dictionary<MediaFeedType, MediaFeed>();
+            _mediaFeeds = new Dictionary<MediaFeedType, MediaFeed>();
         }
 
         public DateTime Date { get; set;}
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
         //public GameType GameType { get; set; }
-        public IDictionary<MediaFeedType, MediaFeed> MediaFeeds { get; set; }
-        
+        private IDictionary<MediaFeedType, MediaFeed> _mediaFeeds;
+
+        public IDictionary<MediaFeedType, MediaFeed> MediaFeeds
+        {
+            get
+            {
+                foreach (var key in _mediaFeeds.Keys)
+                {
+                    _mediaFeeds[key].ParentGame = this;
+                }
+                return _mediaFeeds;
+            }
+            set
+            {
+                _mediaFeeds = value;
+            }
+        }
     }
 }

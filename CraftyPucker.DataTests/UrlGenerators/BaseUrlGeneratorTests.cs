@@ -5,6 +5,7 @@ using CraftyPucker.Data.Tests;
 using CraftyPucker.Data;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CraftyPucker.Data.Tests.UrlGenerators;
 
 namespace CraftyPucker.Data.UrlGenerators.Tests
 {
@@ -14,15 +15,6 @@ namespace CraftyPucker.Data.UrlGenerators.Tests
     [TestClass]
     public class BaseUrlGeneratorTests
     {
-
-        public class BaseUrlGeneratorImplementation : BaseUrlGenerator
-        {
-            public override string GetBaseUrl()
-            {
-                return "http://test.com";
-            }
-        }
-
 
         public BaseUrlGeneratorTests()
         {
@@ -41,8 +33,8 @@ namespace CraftyPucker.Data.UrlGenerators.Tests
                 .Build();
 
             var baseUrlGenerator = new BaseUrlGeneratorImplementation();
-            var url = baseUrlGenerator.Generate(game, game.MediaFeeds[MediaFeedType.HOME]);
-            Assert.AreEqual(url, new Uri("http://test.com/2016/03/13/NHL_GAME_VIDEO_CHIDET_M2_HOME_2016/03/13/master_wired60.m3u8"));
+            var url = baseUrlGenerator.Generate(game.MediaFeeds[MediaFeedType.HOME], "CDN");
+            Assert.AreEqual(url, new Uri("http://test.com/2016/03/13/NHL_GAME_VIDEO_CHIDET_M2_HOME_20160313/master_wired60.m3u8"));
         }
 
         [TestMethod()]
@@ -56,8 +48,8 @@ namespace CraftyPucker.Data.UrlGenerators.Tests
                 .Build();
 
             var baseUrlGenerator = new BaseUrlGeneratorImplementation();
-            var url = baseUrlGenerator.Generate(game, game.MediaFeeds[MediaFeedType.AWAY]);
-            Assert.AreEqual(url, new Uri("http://test.com/2016/03/13/NHL_GAME_VIDEO_CHIDET_M2_VISIT_2016/03/13/master_wired60.m3u8"));
+            var url = baseUrlGenerator.Generate(game.MediaFeeds[MediaFeedType.AWAY], "CDN");
+            Assert.AreEqual(url, new Uri("http://test.com/2016/03/13/NHL_GAME_VIDEO_CHIDET_M2_VISIT_20160313/master_wired60.m3u8"));
 
         }
     }

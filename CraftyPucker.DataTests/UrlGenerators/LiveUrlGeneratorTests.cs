@@ -17,7 +17,7 @@ namespace CraftyPucker.Data.Tests.UrlGenerators
         public void LiveUrlGeneratorReturnsCorrectBaseUrl()
         {
             var liveUrlGenerator = new LiveUrlGenerator();
-            Assert.AreEqual(liveUrlGenerator.GetBaseUrl(), "http://hlslive-CDN.med2.med.nhl.com/ls04/nhl");
+            Assert.AreEqual(liveUrlGenerator.GetBaseUrl("CDN"), "http://hlslive-CDN.med2.med.nhl.com/ls04/nhl");
         }
 
     }

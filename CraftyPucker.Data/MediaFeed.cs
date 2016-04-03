@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CraftyPucker.Data.Stream;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,13 +12,28 @@ namespace CraftyPucker.Data
     public class MediaFeed
     {
 
+        public MediaFeed()
+        {
+            Available = true;
+        }
+
+        public Game ParentGame { get; set; }
+
         public MediaFeedType MediaFeedType { get; set; }
 
         public string MediaPlaybackId { get; set; }
 
+        public bool Available { get; set; }
+
         public void Stream()
         {
-            throw new NotImplementedException("lol");
+            Stream(Arguments.GetDefaultArguments());
+        }
+
+        public void Stream(Arguments args)
+        {
+            var streamer = new Streamer();
+            streamer.StreamGame(args, this);
         }
 
     }

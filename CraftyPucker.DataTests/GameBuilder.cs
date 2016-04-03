@@ -73,7 +73,10 @@ namespace CraftyPucker.Data.Tests
             g1.AwayTeam = AwayTeam;
             g1.Date = new DateTime(2016, 3, 13, 17, 0, 0);
             if (MediaFeed != null)
+            {
+                MediaFeed.ParentGame = g1;
                 g1.MediaFeeds.Add(MediaFeed.MediaFeedType, MediaFeed);
+            }
 
             return g1;
         }
