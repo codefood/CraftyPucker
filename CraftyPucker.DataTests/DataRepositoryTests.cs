@@ -26,10 +26,10 @@ namespace CraftyPucker.Data.Tests
                 Name = "Chicago Blackhawks"
             };
             g1.Date = new DateTime(2016, 3, 13, 17, 0, 0);
-            g1.GameType = GameType.Home;
-            ((List<MediaFeed>)g1.MediaFeeds).Add(new MediaFeed
+            g1.MediaFeeds.Add(MediaFeedType.HOME,
+            new MediaFeed
             {
-                MediaFeedType = "HOME",
+                MediaFeedType = MediaFeedType.HOME,
                 MediaPlaybackId = "1234"
             });
 
@@ -48,14 +48,14 @@ namespace CraftyPucker.Data.Tests
                 Name = "Florida Panthers"
             };
             g2.Date = new DateTime(2016, 3, 13, 17, 0, 0);
-            g2.GameType = GameType.Away;
-            ((List<MediaFeed>)g2.MediaFeeds).Add(new MediaFeed
+            //should mediafeedtype be "VISIT"???
+            g2.MediaFeeds.Add(MediaFeedType.AWAY, new MediaFeed
             {
-                MediaFeedType = "VISIT",
+                MediaFeedType = MediaFeedType.AWAY,
                 MediaPlaybackId = "1234"
             });
 
-            ((List<Game>)_games).Add(g2);
+            _games.Add(g2);
 
 
             var g3 = new Game();
@@ -70,14 +70,14 @@ namespace CraftyPucker.Data.Tests
                 Name = "Philadelphia Flyers"
             };
             g3.Date = new DateTime(2016, 3, 12, 16, 0, 0);
-            g3.GameType = GameType.Away;
-            ((List<MediaFeed>)g2.MediaFeeds).Add(new MediaFeed
+            g3.MediaFeeds.Add(MediaFeedType.AWAY,
+                new MediaFeed
             {
-                MediaFeedType = "VISIT",
+                MediaFeedType = MediaFeedType.AWAY,
                 MediaPlaybackId = "5678"
             });
 
-            ((List<Game>)_games).Add(g3);
+            _games.Add(g3);
 
             return _games;
 

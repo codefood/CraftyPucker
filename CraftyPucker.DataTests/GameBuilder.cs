@@ -18,7 +18,7 @@ namespace CraftyPucker.Data.Tests
         {
             this.MediaFeed = new MediaFeed
             {
-                MediaFeedType = "HOME",
+                MediaFeedType = MediaFeedType.HOME,
                 MediaPlaybackId = "1234"
             };
             return this;
@@ -28,7 +28,7 @@ namespace CraftyPucker.Data.Tests
         {
             this.MediaFeed = new MediaFeed
             {
-                MediaFeedType = "VISIT",
+                MediaFeedType = MediaFeedType.AWAY,
                 MediaPlaybackId = "4321"
             };
             return this;
@@ -73,7 +73,7 @@ namespace CraftyPucker.Data.Tests
             g1.AwayTeam = AwayTeam;
             g1.Date = new DateTime(2016, 3, 13, 17, 0, 0);
             if (MediaFeed != null)
-                ((List<MediaFeed>)g1.MediaFeeds).Add(MediaFeed);
+                g1.MediaFeeds.Add(MediaFeed.MediaFeedType, MediaFeed);
 
             return g1;
         }
