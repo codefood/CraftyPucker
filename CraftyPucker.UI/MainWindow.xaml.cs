@@ -7,10 +7,10 @@ namespace CraftyPucker.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Data.GameRepository _gamesRepo;
+        private Data.DataRepository _gamesRepo;
         public MainWindow()
         {
-            _gamesRepo = new Data.GameRepository();
+            _gamesRepo = new Data.DataRepository();
             InitializeComponent();
             lbGames.ItemsSource = _gamesRepo.Games;
         }

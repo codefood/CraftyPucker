@@ -48,12 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
-    <Compile Include="GameRepository.cs" />
+    <Compile Include="DataRepository.cs" />
     <Compile Include="GameType.cs" />
     <Compile Include="Loaders\IGameLoader.cs" />
     <Compile Include="Loaders\JsonGameLoader.cs" />
     <Compile Include="MediaFeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\ISource.cs" />
+    <Compile Include="Sources\JsonSource.cs" />
     <Compile Include="StreamType.cs" />
     <Compile Include="UrlGenerators\VodUrlGenerator.cs" />
     <Compile Include="UrlGenerators\BaseUrlGenerator.cs" />
@@ -62,6 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="test.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
