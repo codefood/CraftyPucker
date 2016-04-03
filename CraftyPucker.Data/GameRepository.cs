@@ -13,7 +13,7 @@ namespace CraftyPucker.Data
             get
             {
                 if (_games == null)
-                    LoadGames();
+                    LoadTestGames();
                 return _games;
             }
         }
@@ -21,6 +21,14 @@ namespace CraftyPucker.Data
         private IEnumerable<Game> _games;
 
         private void LoadGames()
+        {
+            //var gameDataSource = new JsonSource(DateTime.Now);
+            //var gameData = gameDataSource.DownloadJson();
+            //var gameLoader = new JsonGameLoader();
+            //_games = gameLoader.Load(gameData);
+        }
+
+        private void LoadTestGames()
         {
             _games = new List<Game>();
             var g1 = new Game();
