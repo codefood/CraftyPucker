@@ -41,7 +41,7 @@ namespace CraftyPucker.Data.UrlGenerators.Tests
                 .Build();
 
             var baseUrlGenerator = new BaseUrlGeneratorImplementation();
-            var url = baseUrlGenerator.Generate(game, game.MediaFeeds.First());
+            var url = baseUrlGenerator.Generate(game, game.MediaFeeds[MediaFeedType.HOME]);
             Assert.AreEqual(url, new Uri("http://test.com/2016/03/13/NHL_GAME_VIDEO_CHIDET_M2_HOME_2016/03/13/master_wired60.m3u8"));
         }
 
@@ -56,7 +56,7 @@ namespace CraftyPucker.Data.UrlGenerators.Tests
                 .Build();
 
             var baseUrlGenerator = new BaseUrlGeneratorImplementation();
-            var url = baseUrlGenerator.Generate(game, game.MediaFeeds.First());
+            var url = baseUrlGenerator.Generate(game, game.MediaFeeds[MediaFeedType.AWAY]);
             Assert.AreEqual(url, new Uri("http://test.com/2016/03/13/NHL_GAME_VIDEO_CHIDET_M2_VISIT_2016/03/13/master_wired60.m3u8"));
 
         }

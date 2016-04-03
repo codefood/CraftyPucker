@@ -53,6 +53,7 @@
     <Compile Include="Loaders\IGameLoader.cs" />
     <Compile Include="Loaders\JsonGameLoader.cs" />
     <Compile Include="MediaFeed.cs" />
+    <Compile Include="MediaFeedType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\ISource.cs" />
     <Compile Include="Sources\JsonSource.cs" />

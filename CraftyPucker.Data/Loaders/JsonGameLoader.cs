@@ -45,40 +45,46 @@ namespace CraftyPucker.Data.Loaders
 
                 game.MediaFeeds = LoadMediaFeedsFromList(mediaItems);
 
-                switch (game.MediaFeeds.First().MediaFeedType)
-                {
-                    case "HOME":
-                        game.GameType = GameType.Home;
-                        break;
-                    case "AWAY":
-                        game.GameType = GameType.Away;
-                        break;
-                    case "NATIONAL":
-                        game.GameType = GameType.National;
-                        break;
-                    case "FRENCH":
-                        game.GameType = GameType.French;
-                        break;
-                    default:
-                        throw new InvalidOperationException("Unknown gametype");
-                }
+                //switch (game.MediaFeeds.Keys.First())
+                //{
+                //    case MediaFeedType.HOME:
+                //        game.GameType = GameType.Home;
+                //        break;
+                //    case MediaFeedType.AWAY:
+                //        game.GameType = GameType.Away;
+                //        break;
+                //    case MediaFeedType.NATIONAL:
+                //        game.GameType = GameType.National;
+                //        break;
+                //    case MediaFeedType.FRENCH:
+                //        game.GameType = GameType.French;
+                //        break;
+                //    default:
+                //        throw new InvalidOperationException("Unknown gametype");
+                //}
 
                 yield return game;
             }
         }
 
-        private IEnumerable<MediaFeed> LoadMediaFeedsFromList(IEnumerable<JToken> mediaFeeds)
+        private IDictionary<MediaFeedType, MediaFeed> LoadMediaFeedsFromList(IEnumerable<JToken> mediaFeeds)
         {
+            var mediaFeedDict = new Dictionary<MediaFeedType, MediaFeed>();
             foreach (var mediaFeedItem in mediaFeeds)
             {
                 foreach (var item in mediaFeedItem["items"])
                 {
                     var mediaFeed = new MediaFeed();
-                    mediaFeed.MediaFeedType = item["mediaFeedType"].ToString();
+                    MediaFeedType mediaFeedType;
+                    if (!Enum.TryParse(item["mediaFeedType"].ToString(), out mediaFeedType))
+                        throw new ArgumentOutOfRangeException("mediaFeedType");
+
+                    mediaFeed.MediaFeedType = mediaFeedType;
                     mediaFeed.MediaPlaybackId = item["mediaPlaybackId"].ToString();
-                    yield return mediaFeed;
+                    mediaFeedDict.Add(mediaFeedType, mediaFeed);
                 }
             }
+            return mediaFeedDict;
         }
 
         private Team LoadTeam(string homeAway, JToken game)
