@@ -29,5 +29,19 @@ namespace CraftyPucker.Data
             return string.Format("{0} ({1})", Abbreviation, Name);
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            if (!(obj is Team))
+                return false;
+            return ((Team)obj).Abbreviation.Equals(Abbreviation);
+        }
+
+        public override int GetHashCode()
+        {
+            return Abbreviation.GetHashCode();
+        }
+
     }
 }

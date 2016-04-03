@@ -15,5 +15,10 @@ namespace CraftyPucker.Data
 
         public string MediaPlaybackId { get; set; }
 
+        public void Stream()
+        {
+            throw new NotImplementedException("lol");
+        }
+
     }
 }
