@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CraftyPucker.Data
 {
@@ -17,6 +13,9 @@ namespace CraftyPucker.Data
         }
 
         public DateTime Date { get; set;}
+
+        public string DateString => Date.ToShortDateString();
+
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
         //public GameType GameType { get; set; }
