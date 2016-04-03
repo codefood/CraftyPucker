@@ -30,7 +30,7 @@ namespace CraftyPucker.Data
             Stream(Arguments.GetDefaultArguments());
         }
 
-        public void Stream(Arguments args)
+        private void Stream(Arguments args)
         {
             var streamer = new Streamer();
             streamer.StreamGame(args, this);
