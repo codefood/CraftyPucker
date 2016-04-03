@@ -15,11 +15,7 @@ namespace CraftyPucker.Data.Tests
         [ExpectedException(typeof(NullReferenceException))]
         public void ThrowsNullWithNoHomeTeam()
         {
-            var game = (new GameBuilder())
-                .WithAwayTeam()
-                .WithHomeMediaFeed()
-                .HomeGame()
-                .Build();
+
             //var url = game.GetUriForMediaFeed(StreamType.Live, game.MediaFeeds.First());
         }
 

@@ -10,7 +10,7 @@ namespace CraftyPucker.Data.UrlGenerators
     {
         public override string GetBaseUrl()
         {
-            return "http://hlsvod-akc.med2.med.nhl.com/ps01/nhl/";
+            return "http://hlsvod-akc.med2.med.nhl.com/ps01/nhl";
         }
     }
 }
