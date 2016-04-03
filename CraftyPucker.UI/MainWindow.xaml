@@ -18,11 +18,11 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding HomeTeam.Abbreviation}" />
+                        <TextBlock Text="{BindTo HomeTeam.Abbreviation}" />
                         <TextBlock Grid.Column="1" Text="vs" />
-                        <TextBlock Grid.Column="2" Text="{Binding AwayTeam.Abbreviation}"/>
-                        <Button Grid.Column="3" Content="Home Stream"/>
-                        <Button Grid.Column="3" Content="Away Stream"/>
+                        <TextBlock Grid.Column="2" Text="{BindTo AwayTeam.Abbreviation}"/>
+                        <Button Grid.Column="3" Content="Home Stream" Command="{BindTo MediaFeeds[0].Play()}"/>
+                        <Button Grid.Column="4" Content="Away Stream"  Command="{BindTo MediaFeeds[1].Play()}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

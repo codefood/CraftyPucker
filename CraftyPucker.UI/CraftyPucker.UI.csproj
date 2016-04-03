@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StreamCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +100,10 @@
     <ProjectReference Include="..\CraftyPucker.Data\CraftyPucker.Data.csproj">
       <Project>{7f7a4a41-3720-4364-9bc7-6e04f6b2ba30}</Project>
       <Name>CraftyPucker.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WpfBindTo\WpfBindTo.csproj">
+      <Project>{7d35d8a5-363c-4b88-9b30-65a84e81adf3}</Project>
+      <Name>WpfBindTo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
