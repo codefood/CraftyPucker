@@ -12,10 +12,7 @@ namespace CraftyPucker.Data
     public class MediaFeed
     {
 
-        public MediaFeed()
-        {
-            Available = true;
-        }
+
 
         public Game ParentGame { get; set; }
 
@@ -23,7 +20,10 @@ namespace CraftyPucker.Data
 
         public string MediaPlaybackId { get; set; }
 
-        public bool Available { get; set; }
+        public bool Available
+        {
+            get { return (!String.IsNullOrEmpty(MediaPlaybackId)); }
+        }
 
         public void Stream()
         {
