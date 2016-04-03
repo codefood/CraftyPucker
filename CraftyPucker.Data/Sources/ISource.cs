@@ -8,7 +8,7 @@ namespace CraftyPucker.Data.Sources
 {
     public interface ISource
     {
-        object GetData(DateTime date);
+        string GetData(DateTime date);
 
     }
 }

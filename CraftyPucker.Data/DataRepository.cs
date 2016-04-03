@@ -18,7 +18,7 @@ namespace CraftyPucker.Data
             {
                 if (_games == null)
                     LoadGames();
-                return _games;
+                return _games.OrderBy(x => x.Date).ThenBy(x => x.HomeTeam.Abbreviation);
             }
             set
             {
@@ -32,7 +32,8 @@ namespace CraftyPucker.Data
             {
                 return this.Games.Select(x => x.HomeTeam)
                     .Union(this.Games.Select(x => x.AwayTeam))
-                    .Distinct();
+                    .Distinct()
+                    .OrderBy(x => x.Abbreviation);
             }
         }
 
