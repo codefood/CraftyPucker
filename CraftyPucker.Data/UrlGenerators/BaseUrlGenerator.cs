@@ -26,16 +26,12 @@ namespace CraftyPucker.Data.UrlGenerators
 
             var baseUrl = GetBaseUrl();
 
-            var feedType = mediaFeed.MediaFeedType;
-            if (game.GameType == GameType.Away)
-                feedType = mediaFeed.MediaFeedType.Replace("AWAY", "VISIT");
-
             var url = string.Format("{0}/{1}/NHL_GAME_VIDEO_{2}{3}_M2_{4}_{1}/master_wired60.m3u8",
                 baseUrl,
                 game.Date.ToString("yyyy/MM/dd", CultureInfo.InvariantCulture).Replace("-", "/"),
                 game.AwayTeam.Abbreviation,
                 game.HomeTeam.Abbreviation,
-                feedType
+                mediaFeed.MediaFeedType.ToString().Replace("AWAY", "VISIT")
                 );
 
             return new Uri(url);

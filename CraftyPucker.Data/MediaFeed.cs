@@ -11,7 +11,7 @@ namespace CraftyPucker.Data
     public class MediaFeed
     {
 
-        public string MediaFeedType { get; set; }
+        public MediaFeedType MediaFeedType { get; set; }
 
         public string MediaPlaybackId { get; set; }
 
