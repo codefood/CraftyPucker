@@ -19,7 +19,7 @@ namespace CraftyPucker.Data
 
         public Game ParentGame { get; set; }
 
-        public MediaFeedType MediaFeedType { get; set; }
+        public string MediaFeedType { get; set; }
 
         public string MediaPlaybackId { get; set; }
 

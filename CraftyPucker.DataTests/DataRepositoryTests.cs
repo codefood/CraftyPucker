@@ -26,10 +26,10 @@ namespace CraftyPucker.Data.Tests
                 Name = "Chicago Blackhawks"
             };
             g1.Date = new DateTime(2016, 3, 13, 17, 0, 0);
-            g1.MediaFeeds.Add(MediaFeedType.HOME,
+            g1.MediaFeeds.Add("HOME",
             new MediaFeed
             {
-                MediaFeedType = MediaFeedType.HOME,
+                MediaFeedType = "HOME",
                 MediaPlaybackId = "1234"
             });
 
@@ -48,10 +48,9 @@ namespace CraftyPucker.Data.Tests
                 Name = "Florida Panthers"
             };
             g2.Date = new DateTime(2016, 3, 13, 17, 0, 0);
-            //should mediafeedtype be "VISIT"???
-            g2.MediaFeeds.Add(MediaFeedType.AWAY, new MediaFeed
+            g2.MediaFeeds.Add("AWAY", new MediaFeed
             {
-                MediaFeedType = MediaFeedType.AWAY,
+                MediaFeedType = "AWAY",
                 MediaPlaybackId = "1234"
             });
 
@@ -70,10 +69,10 @@ namespace CraftyPucker.Data.Tests
                 Name = "Philadelphia Flyers"
             };
             g3.Date = new DateTime(2016, 3, 12, 16, 0, 0);
-            g3.MediaFeeds.Add(MediaFeedType.AWAY,
+            g3.MediaFeeds.Add("AWAY",
                 new MediaFeed
             {
-                MediaFeedType = MediaFeedType.AWAY,
+                MediaFeedType = "AWAY",
                 MediaPlaybackId = "5678"
             });
 

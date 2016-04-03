@@ -67,21 +67,26 @@ namespace CraftyPucker.Data.Loaders
             }
         }
 
-        private IDictionary<MediaFeedType, MediaFeed> LoadMediaFeedsFromList(IEnumerable<JToken> mediaFeeds)
+        private IDictionary<string, MediaFeed> LoadMediaFeedsFromList(IEnumerable<JToken> mediaFeeds)
         {
-            var mediaFeedDict = new Dictionary<MediaFeedType, MediaFeed>();
+            var mediaFeedDict = new Dictionary<string, MediaFeed>();
             foreach (var mediaFeedItem in mediaFeeds)
             {
                 foreach (var item in mediaFeedItem["items"])
                 {
                     var mediaFeed = new MediaFeed();
-                    MediaFeedType mediaFeedType;
-                    if (!Enum.TryParse(item["mediaFeedType"].ToString(), out mediaFeedType))
-                        throw new ArgumentOutOfRangeException("mediaFeedType");
+                    //MediaFeedType mediaFeedType;
+                    var mediaFeedTypeValue = item["mediaFeedType"].ToString().ToUpper();
+                    //if (!Enum.TryParse(mediaFeedTypeValue, out mediaFeedType))
+                    //    throw new ArgumentOutOfRangeException("mediaFeedType");
 
-                    mediaFeed.MediaFeedType = mediaFeedType;
+                    mediaFeed.MediaFeedType = mediaFeedTypeValue;
                     mediaFeed.MediaPlaybackId = item["mediaPlaybackId"].ToString();
-                    mediaFeedDict.Add(mediaFeedType, mediaFeed);
+
+                    if (mediaFeedDict.Keys.Contains(mediaFeedTypeValue))
+                        continue;
+
+                    mediaFeedDict.Add(mediaFeedTypeValue, mediaFeed);
                 }
             }
             return mediaFeedDict;

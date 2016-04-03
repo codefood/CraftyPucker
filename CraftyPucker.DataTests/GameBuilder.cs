@@ -18,7 +18,7 @@ namespace CraftyPucker.Data.Tests
         {
             this.MediaFeed = new MediaFeed
             {
-                MediaFeedType = MediaFeedType.HOME,
+                MediaFeedType = "HOME",
                 MediaPlaybackId = "1234"
             };
             return this;
@@ -28,7 +28,7 @@ namespace CraftyPucker.Data.Tests
         {
             this.MediaFeed = new MediaFeed
             {
-                MediaFeedType = MediaFeedType.AWAY,
+                MediaFeedType = "AWAY",
                 MediaPlaybackId = "4321"
             };
             return this;
@@ -75,7 +75,7 @@ namespace CraftyPucker.Data.Tests
             if (MediaFeed != null)
             {
                 MediaFeed.ParentGame = g1;
-                g1.MediaFeeds.Add(MediaFeed.MediaFeedType, MediaFeed);
+                g1.MediaFeeds.Add(MediaFeed.MediaFeedType.ToString(), MediaFeed);
             }
 
             return g1;

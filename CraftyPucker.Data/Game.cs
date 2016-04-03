@@ -9,7 +9,7 @@ namespace CraftyPucker.Data
     {
         public Game()
         {
-            _mediaFeeds = new Dictionary<MediaFeedType, MediaFeed>();
+            _mediaFeeds = new Dictionary<string, MediaFeed>();
         }
 
         public DateTime Date { get; set;}
@@ -19,9 +19,9 @@ namespace CraftyPucker.Data
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
         //public GameType GameType { get; set; }
-        private IDictionary<MediaFeedType, MediaFeed> _mediaFeeds;
+        private IDictionary<string, MediaFeed> _mediaFeeds;
 
-        public IDictionary<MediaFeedType, MediaFeed> MediaFeeds
+        public IDictionary<string, MediaFeed> MediaFeeds
         {
             get
             {
