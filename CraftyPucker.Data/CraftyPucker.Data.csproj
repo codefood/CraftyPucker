@@ -57,7 +57,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\ISource.cs" />
     <Compile Include="Sources\JsonSource.cs" />
-    <Compile Include="StreamType.cs" />
+    <Compile Include="Stream\ArgumentBuilder.cs" />
+    <Compile Include="Stream\Arguments.cs" />
+    <Compile Include="Stream\Parameters\CDN.cs" />
+    <Compile Include="Stream\Parameters\Quality.cs" />
+    <Compile Include="Stream\Streamer.cs" />
     <Compile Include="UrlGenerators\VodUrlGenerator.cs" />
     <Compile Include="UrlGenerators\BaseUrlGenerator.cs" />
     <Compile Include="Team.cs" />

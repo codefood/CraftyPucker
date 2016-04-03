@@ -17,7 +17,7 @@ namespace CraftyPucker.Data.Tests.UrlGenerators
         public void VodUrlGeneratorReturnsCorrectBaseUrl()
         {
             var vodUrlGenerator = new VodUrlGenerator();
-            Assert.AreEqual(vodUrlGenerator.GetBaseUrl(), "http://hlsvod-akc.med2.med.nhl.com/ps01/nhl");
+            Assert.AreEqual(vodUrlGenerator.GetBaseUrl("CDN"), "http://hlsvod-akc.med2.med.nhl.com/ps01/nhl");
         }
 
     }

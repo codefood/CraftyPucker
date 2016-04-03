@@ -8,7 +8,7 @@ namespace CraftyPucker.Data.UrlGenerators
 {
     public class VodUrlGenerator : BaseUrlGenerator
     {
-        public override string GetBaseUrl()
+        public override string GetBaseUrl(string cdn)
         {
             return "http://hlsvod-akc.med2.med.nhl.com/ps01/nhl";
         }

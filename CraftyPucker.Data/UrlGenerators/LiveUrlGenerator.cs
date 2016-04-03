@@ -8,9 +8,9 @@ namespace CraftyPucker.Data.UrlGenerators
 {
     public class LiveUrlGenerator : BaseUrlGenerator
     {
-        public override string GetBaseUrl()
+        public override string GetBaseUrl(string cdn)
         {
-            return "http://hlslive-CDN.med2.med.nhl.com/ls04/nhl";
+            return string.Format("http://hlslive-{0}.med2.med.nhl.com/ls04/nhl", cdn);
         }
     }
 }

@@ -58,7 +58,10 @@
     <Compile Include="Loaders\JsonGameLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\JsonSourceTests.cs" />
+    <Compile Include="Stream\ArgumentBuilderTests.cs" />
+    <Compile Include="Stream\StreamerTests.cs" />
     <Compile Include="TeamTests.cs" />
+    <Compile Include="UrlGenerators\BaseUrlGeneratorImplementation.cs" />
     <Compile Include="UrlGenerators\BaseUrlGeneratorTests.cs" />
     <Compile Include="UrlGenerators\LiveUrlGeneratorTests.cs" />
     <Compile Include="UrlGenerators\VodUrlGeneratorTests.cs" />
