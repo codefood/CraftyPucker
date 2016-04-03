@@ -56,6 +56,7 @@
     <Compile Include="GameBuilder.cs" />
     <Compile Include="Loaders\JsonGameLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamTests.cs" />
     <Compile Include="UrlGenerators\BaseUrlGeneratorTests.cs" />
     <Compile Include="UrlGenerators\LiveUrlGeneratorTests.cs" />
     <Compile Include="UrlGenerators\VodUrlGeneratorTests.cs" />

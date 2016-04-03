@@ -26,7 +26,7 @@ namespace CraftyPucker.Data
 
         public override string ToString()
         {
-            return string.Format("{Abbreviation ({Name})", Abbreviation, Name);
+            return string.Format("{0} ({1})", Abbreviation, Name);
         }
 
     }
