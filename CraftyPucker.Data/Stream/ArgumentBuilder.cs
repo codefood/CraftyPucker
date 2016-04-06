@@ -9,7 +9,7 @@ namespace CraftyPucker.Data.Stream
 {
     public class ArgumentBuilder
     {
-        public string Build(Arguments args, MediaFeed mediaFeed)
+        public string Build(Arguments args, string CDN, MediaFeed mediaFeed)
         {
             var ret = "";
             ret += string.Format(" --player \"'{0}'", args.PlayerPath);
@@ -17,7 +17,7 @@ namespace CraftyPucker.Data.Stream
 
             ret += string.Format(" \"hlsvariant://");
 
-            ret += args.UrlGenerator.Generate(mediaFeed, args.CDN);
+            ret += args.UrlGenerator.Generate(mediaFeed, CDN);
 
             if (args.SixtyFps)
                 ret += " name_key=bitrate";

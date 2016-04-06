@@ -11,7 +11,7 @@ namespace CraftyPucker.Data.Stream
     public class Arguments
     {
         public string Quality { get; set; }
-        public string CDN { get; set; }
+        //public string CDN { get; set; }
         public bool SixtyFps { get; set; }
         public BaseUrlGenerator UrlGenerator { get; set; }
         //public MediaFeed MediaFeed { get; set; }
@@ -22,8 +22,7 @@ namespace CraftyPucker.Data.Stream
             return new Arguments
             {
                 Quality = CraftyPucker.Data.Stream.Parameters.Quality._720P,
-                CDN = CraftyPucker.Data.Stream.Parameters.CDN.Akami,
-                UrlGenerator = new VodUrlGenerator(),
+               // CDN = CraftyPucker.Data.Stream.Parameters.CDN.Akami,
                 SixtyFps = false
             };
         }

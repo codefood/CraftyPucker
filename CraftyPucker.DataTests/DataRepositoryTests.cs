@@ -97,7 +97,6 @@ namespace CraftyPucker.Data.Tests
             var dataRepository = new DataRepository();
             var games = dataRepository.Games;
             Assert.IsTrue(games.Any());
-            Assert.IsTrue(games.Count() == 5);
         }
 
 

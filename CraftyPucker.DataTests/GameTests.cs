@@ -91,5 +91,13 @@ namespace CraftyPucker.Data.Tests
 
         }
 
+        [TestMethod()]
+        public void IsLive_Works()
+        {
+            var g = new Game();
+            g.Date = DateTime.Now.AddHours(-6);
+            Assert.IsTrue(g.IsLive);
+        }
+
     }
 }

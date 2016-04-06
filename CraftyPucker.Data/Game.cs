@@ -21,6 +21,8 @@ namespace CraftyPucker.Data
         //public GameType GameType { get; set; }
         private IDictionary<string, MediaFeed> _mediaFeeds;
 
+        public bool IsLive => DateTime.Now.Subtract(Date).TotalHours <= 24;
+
         public IDictionary<string, MediaFeed> MediaFeeds
         {
             get

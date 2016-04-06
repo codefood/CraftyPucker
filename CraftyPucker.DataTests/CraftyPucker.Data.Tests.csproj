@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="DataRepositoryTests.cs" />
     <Compile Include="GameBuilder.cs" />
+    <Compile Include="GameTests.cs" />
     <Compile Include="Loaders\JsonGameLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\JsonSourceTests.cs" />

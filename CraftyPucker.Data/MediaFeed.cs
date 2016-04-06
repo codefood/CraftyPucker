@@ -1,4 +1,5 @@
 ﻿using CraftyPucker.Data.Stream;
+using CraftyPucker.Data.UrlGenerators;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,7 +28,13 @@ namespace CraftyPucker.Data
 
         public void Stream()
         {
-            Stream(Arguments.GetDefaultArguments());
+            var args = Arguments.GetDefaultArguments();
+            if (ParentGame.IsLive)
+                args.UrlGenerator = new LiveUrlGenerator();
+            else
+                args.UrlGenerator = new VodUrlGenerator();
+
+            Stream(args);
         }
 
         private void Stream(Arguments args)
