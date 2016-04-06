@@ -23,7 +23,21 @@ namespace CraftyPucker.Data
 
         public bool Available
         {
-            get { return (!String.IsNullOrEmpty(MediaPlaybackId)); }
+            get
+            {
+                if (ParentGame == null)
+                    return false;
+
+                //Game is not in the future
+                if (ParentGame.Date > DateTime.Now)
+                    return false;
+
+                //there is actual media available
+                if (String.IsNullOrEmpty(MediaPlaybackId))
+                    return false;
+
+                return true;
+            }
         }
 
         public void Stream()

@@ -34,6 +34,7 @@ namespace CraftyPucker.Data.Loaders
             foreach(var gameItem in date["games"])
             {
                 var game = new Game();
+                //TODO: this date needs a time and uuugh timezones :(
                 game.Date = gameDate;
                 game.HomeTeam = LoadTeam(Team.HomeAway.Home, gameItem);
                 game.AwayTeam = LoadTeam(Team.HomeAway.Away, gameItem);
