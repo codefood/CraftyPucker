@@ -20,6 +20,7 @@ namespace CraftyPucker.Data.Sources
 
             var httpClient = new HttpClient();
             var task = httpClient.GetStringAsync(url);
+
             Task.WaitAll(task);
             return task.Result;
         }

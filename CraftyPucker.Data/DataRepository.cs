@@ -11,14 +11,19 @@ namespace CraftyPucker.Data
     public class DataRepository
     {
 
-
+        /// <summary>
+        /// Each of the games in the data set.
+        /// Ordered by date and Home Team Abbreviation
+        /// </summary>
         public IEnumerable<Game> Games
         {
             get
             {
                 if (_games == null)
-                    LoadGames();
-                return _games.OrderBy(x => x.Date).ThenBy(x => x.HomeTeam.Abbreviation);
+                    LoadGamesForDate(DateTime.Today);
+
+                return _games.OrderByDescending(x => x.Date)
+                    .ThenBy(x => x.HomeTeam == null ? "ZZZZZZ" : x.HomeTeam.Abbreviation);
             }
             set
             {
@@ -26,6 +31,10 @@ namespace CraftyPucker.Data
             }
         }
 
+        /// <summary>
+        /// Each of the Teams that are in the Data represented by <see cref="Games"/>.
+        /// Ordered by Abbreviation
+        /// </summary>
         public IEnumerable<Team> Teams
         {
             get
@@ -39,11 +48,11 @@ namespace CraftyPucker.Data
 
         private IEnumerable<Game> _games;
 
-        private void LoadGames()
+        private void LoadGamesForDate(DateTime date)
         {
-            var gameDataSource = new JsonSource();
-            var gameData = gameDataSource.GetData(DateTime.Now);
-            var gameLoader = new JsonGameLoader();
+            var gameDataSource = SourceFactory.Get();
+            var gameData = gameDataSource.GetData(date);
+            var gameLoader = LoaderFactory.Get();
             _games = gameLoader.Load(gameData);
         }
 

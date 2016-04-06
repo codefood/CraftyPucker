@@ -30,13 +30,9 @@ namespace CraftyPucker.Data.Stream.Tests
             var argBuilder = new ArgumentBuilder();
 
             var arguments = argBuilder.Build(args, "CDN", game.MediaFeeds[game.MediaFeeds.Keys.First()]);
-            var test = " --player \"'C:\\Program Files\\VideoLAN\\VLC\\vlc.exe' --meta-title 'CraftyPucker' \" \"hlsvariant://http://test.com/2016/03/13/NHL_GAME_VIDEO_CHIDET_M2_HOME_20160313/master_wired60.m3u8\" 720P --http-no-ssl-verify ";
+            var test = " --player \"'' --meta-title 'CraftyPucker' \" \"hlsvariant://http://test.com/2016/03/13/NHL_GAME_VIDEO_CHIDET_M2_HOME_20160313/master_wired60.m3u8\" 720P --http-no-ssl-verify ";
             Console.WriteLine(arguments);
             Console.WriteLine(test);
-
-            if (System.IO.File.Exists("FUCK.txt"))
-                System.IO.File.Delete("FUCK.txt");
-            System.IO.File.WriteAllText("FUCK.txt", arguments + "\r\n" + test);
 
             Assert.IsTrue(arguments.Equals(test));
         }

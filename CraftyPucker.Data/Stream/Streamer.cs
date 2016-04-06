@@ -10,16 +10,21 @@ namespace CraftyPucker.Data.Stream
 {
     public class Streamer
     {
+        public static class CDN
+        {
+            public const string Level3 = "l3c";
+            public const string Akami = "akc";
+        }
 
         public void StreamGame(Arguments args, MediaFeed mediaFeed)
         {
             try
             {
-                StreamGame(args, CraftyPucker.Data.Stream.Parameters.CDN.Akami, mediaFeed);
+                StreamGame(args, CDN.Akami, mediaFeed);
             }
             catch (StreamException streamEx)
             {
-                StreamGame(args, CraftyPucker.Data.Stream.Parameters.CDN.Level3, mediaFeed);
+                StreamGame(args, CDN.Level3, mediaFeed);
             }
             catch (Exception ex)
             {

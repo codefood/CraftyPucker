@@ -18,7 +18,6 @@ namespace CraftyPucker.Data
 
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
-        //public GameType GameType { get; set; }
         private IDictionary<string, MediaFeed> _mediaFeeds;
 
         public bool IsLive => DateTime.Now.Subtract(Date).TotalHours <= 24;

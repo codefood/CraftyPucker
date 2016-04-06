@@ -45,24 +45,6 @@ namespace CraftyPucker.Data.Loaders
 
                 game.MediaFeeds = LoadMediaFeedsFromList(mediaItems);
 
-                //switch (game.MediaFeeds.Keys.First())
-                //{
-                //    case MediaFeedType.HOME:
-                //        game.GameType = GameType.Home;
-                //        break;
-                //    case MediaFeedType.AWAY:
-                //        game.GameType = GameType.Away;
-                //        break;
-                //    case MediaFeedType.NATIONAL:
-                //        game.GameType = GameType.National;
-                //        break;
-                //    case MediaFeedType.FRENCH:
-                //        game.GameType = GameType.French;
-                //        break;
-                //    default:
-                //        throw new InvalidOperationException("Unknown gametype");
-                //}
-
                 yield return game;
             }
         }
