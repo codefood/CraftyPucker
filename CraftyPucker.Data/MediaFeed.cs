@@ -43,12 +43,18 @@ namespace CraftyPucker.Data
 
         public void Stream()
         {
-            logger.Info(string.Format("Beginning stream of {0}", this));
+            logger.Info(string.Format("Beginning stream of {0} using default arguments", this));
+
+            if (ParentGame == null) //bleh state :(
+                throw new ArgumentNullException("ParentGame");
+
             var args = Arguments.GetDefaultArguments();
             if (ParentGame.IsLive)
                 args.UrlGenerator = new LiveUrlGenerator();
             else
                 args.UrlGenerator = new VodUrlGenerator();
+
+            logger.Info("ParentGame.IsLive == {0}", ParentGame.IsLive);
 
             Stream(args);
         }
