@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="clr-namespace:CraftyPucker.UI"
         mc:Ignorable="d"
+        x:Name="CraftyPucker"
         Title="CraftyPucker" Height="350" Width="750">
     <Grid Margin="10">
         <StackPanel>
@@ -13,7 +14,12 @@
                 <ComboBox Width="100" ItemsSource="{BindTo Teams}" SelectedItem="{BindTo SelectedTeam}" IsSynchronizedWithCurrentItem="True"/>
                 <Button Command="{BindTo Clear()}" Content="Clear"/>
             </StackPanel>
-            <ListBox VerticalContentAlignment="Center" Name="lbGames" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Games}" IsSynchronizedWithCurrentItem="True">
+            <ListBox 
+                VerticalContentAlignment="Center" 
+                x:Name="lbGames" 
+                HorizontalContentAlignment="Stretch" 
+                ItemsSource="{Binding Games}" 
+                IsSynchronizedWithCurrentItem="True">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,2">
@@ -33,11 +39,56 @@
                             <TextBlock Grid.Column="1" Text="vs" />
                             <TextBlock Grid.Column="2" Text="{BindTo AwayTeam.Abbreviation}"/>
                             <TextBlock Margin="10,0,10,0" Grid.Column="3" Text="{BindTo DateString}"/>
-                            <Button Margin="5,0,5,0" Grid.Column="5" Content="Home" Command="{BindTo MediaFeeds[HOME].Stream()}" IsEnabled="{BindTo MediaFeeds[HOME].Available}"/>
+                            <Button 
+                                Margin="5,0,5,0" 
+                                Grid.Column="5" 
+                                Content="Home" 
+                                DataContext="{Binding MediaFeeds[HOME]}"
+                                Command="{Binding ElementName=lbGames, Path=DataContext.StreamCommand}"
+                                CommandParameter="{Binding}" 
+                                IsEnabled="{BindTo Available}"
+                                />
+                            <Button 
+                                Margin="5,0,5,0" 
+                                Grid.Column="6" 
+                                Content="Away"  
+                                DataContext="{Binding MediaFeeds[AWAY]}"
+                                Command="{Binding ElementName=lbGames, Path=DataContext.StreamCommand}"
+                                CommandParameter="{Binding}" 
+                                IsEnabled="{BindTo Available}"
+                                />
+                            <Button
+                                Margin="5,0,5,0" 
+                                Grid.Column="7" 
+                                Content="National"  
+                                DataContext="{Binding MediaFeeds[NATIONAL]}"
+                                Command="{Binding ElementName=lbGames, Path=DataContext.StreamCommand}"
+                                CommandParameter="{Binding}" 
+                                IsEnabled="{BindTo Available}"
+                                />
+                            <Button 
+                                Margin="5,0,5,0" 
+                                Grid.Column="8" 
+                                Content="French"  
+                                DataContext="{Binding MediaFeeds[FRENCH]}"
+                                Command="{Binding ElementName=lbGames, Path=DataContext.StreamCommand}"
+                                CommandParameter="{Binding}" 
+                                IsEnabled="{BindTo Available}"
+                                />
+                            <Button 
+                                Margin="5,0,5,0" 
+                                Grid.Column="9" 
+                                Content="Composite"  
+                                DataContext="{Binding MediaFeeds[COMPOSITE]}"
+                                Command="{Binding ElementName=lbGames, Path=DataContext.StreamCommand}"
+                                CommandParameter="{Binding}" 
+                                IsEnabled="{BindTo Available}"
+                                />
+                            <!--<Button Margin="5,0,5,0" Grid.Column="5" Content="Home" Command="{BindTo MediaFeeds[HOME].Stream()}" IsEnabled="{BindTo MediaFeeds[HOME].Available}"/>
                             <Button Margin="5,0,5,0" Grid.Column="6" Content="Away"  Command="{BindTo MediaFeeds[AWAY].Stream()}" IsEnabled="{BindTo MediaFeeds[AWAY].Available}"/>
                             <Button Margin="5,0,5,0" Grid.Column="7" Content="National"  Command="{BindTo MediaFeeds[NATIONAL].Stream()}" IsEnabled="{BindTo MediaFeeds[NATIONAL].Available}"/>
                             <Button Margin="5,0,5,0" Grid.Column="8" Content="French"  Command="{BindTo MediaFeeds[FRENCH].Stream()}" IsEnabled="{BindTo MediaFeeds[FRENCH].Available}"/>
-                            <Button Margin="5,0,5,0" Grid.Column="9" Content="Composite"  Command="{BindTo MediaFeeds[COMPOSITE].Stream()}" IsEnabled="{BindTo MediaFeeds[COMPOSITE].Available}"/>
+                            <Button Margin="5,0,5,0" Grid.Column="9" Content="Composite"  Command="{BindTo MediaFeeds[COMPOSITE].Stream()}" IsEnabled="{BindTo MediaFeeds[COMPOSITE].Available}"/>-->
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

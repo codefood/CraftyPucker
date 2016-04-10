@@ -72,7 +72,27 @@ namespace CraftyPucker.Data.Loaders
                     mediaFeedDict.Add(mediaFeedTypeValue, mediaFeed);
                 }
             }
+            mediaFeedDict = PatchUpMediaFeeds(mediaFeedDict);
+
             return mediaFeedDict;
+        }
+
+        private Dictionary<string, MediaFeed> PatchUpMediaFeeds(Dictionary<string, MediaFeed> mediaFeeds)
+        {
+            string[] possibleKeys = { "HOME", "AWAY", "NATIONAL", "FRENCH", "COMPOSITE" };
+            foreach (var key in possibleKeys)
+            {
+                if (mediaFeeds.Keys.Contains(key))
+                    continue;
+                var dummyFeed = new MediaFeed
+                {
+                    MediaFeedType = key,
+                    MediaPlaybackId = String.Empty
+                };
+                mediaFeeds.Add(key, dummyFeed);
+
+            }
+            return mediaFeeds;
         }
 
         private Team LoadTeam(string homeAway, JToken game)

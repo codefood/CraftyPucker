@@ -1,8 +1,11 @@
 ﻿using CraftyPucker.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Data;
+using System.Windows;
+using System.Windows.Input;
 
 namespace CraftyPucker.UI
 {
@@ -57,6 +60,8 @@ namespace CraftyPucker.UI
             OnPropertyChanged(new PropertyChangedEventArgs(nameof(SelectedTeam)));
             _gamesView.Refresh();
         }
+
+        public ICommand StreamCommand => new Commands.Stream();
 
         public void OnPropertyChanged(PropertyChangedEventArgs e)
         {
