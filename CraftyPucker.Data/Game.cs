@@ -37,5 +37,13 @@ namespace CraftyPucker.Data
                 _mediaFeeds = value;
             }
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} vs {1} ({2})",
+                HomeTeam == null ? "" : HomeTeam.Abbreviation,
+                AwayTeam == null ? "" : AwayTeam.Abbreviation,
+                Date);
+        }
     }
 }

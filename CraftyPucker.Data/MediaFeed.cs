@@ -1,5 +1,6 @@
 ﻿using CraftyPucker.Data.Stream;
 using CraftyPucker.Data.UrlGenerators;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,7 +14,7 @@ namespace CraftyPucker.Data
     public class MediaFeed
     {
 
-
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public Game ParentGame { get; set; }
 
@@ -42,6 +43,7 @@ namespace CraftyPucker.Data
 
         public void Stream()
         {
+            logger.Info(string.Format("Beginning stream of {0}", this));
             var args = Arguments.GetDefaultArguments();
             if (ParentGame.IsLive)
                 args.UrlGenerator = new LiveUrlGenerator();
@@ -55,6 +57,16 @@ namespace CraftyPucker.Data
         {
             var streamer = new Streamer();
             streamer.StreamGame(args, this);
+        }
+
+        public override string ToString()
+        {
+            var ret = string.Format("{0}: {1}", MediaFeedType, MediaPlaybackId);
+            if (ParentGame == null)
+                return ret;
+
+            return string.Format("{0} - {1}", ParentGame, ret);
+
         }
 
     }

@@ -24,7 +24,7 @@ namespace CraftyPucker.Data.Stream
             return new Arguments
             {
                 PlayerPath = VideoPlayerLocator.Locate(),
-                Quality = CraftyPucker.Data.Stream.Parameters.Quality._720P,
+                Quality = Parameters.Quality._720P,
                 SixtyFps = false
             };
         }

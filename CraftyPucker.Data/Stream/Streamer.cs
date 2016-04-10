@@ -1,5 +1,6 @@
 ﻿using CraftyPucker.Data.Stream.Locators;
 using CraftyPucker.Data.UrlGenerators;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,6 +12,8 @@ namespace CraftyPucker.Data.Stream
 {
     public class Streamer
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public static class CDN
         {
             public const string Level3 = "l3c";
@@ -23,12 +26,14 @@ namespace CraftyPucker.Data.Stream
             {
                 StreamGame(args, CDN.Akami, mediaFeed);
             }
-            catch (StreamException streamEx)
+            catch (StreamException)
             {
+                logger.Warn("Akami cache failed, trying Level3 instead");
                 StreamGame(args, CDN.Level3, mediaFeed);
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 throw;
             }
         }
@@ -38,8 +43,13 @@ namespace CraftyPucker.Data.Stream
             var argumentBuilder = new ArgumentBuilder();
             var psi = new ProcessStartInfo();
             psi.FileName = LiveStreamerLocator.Locate();
+
+            logger.Warn(string.Format("Found LiveStreamer at {0}", psi.FileName));
             
             psi.Arguments = argumentBuilder.Build(args, CDN, mediaFeed);
+
+            logger.Warn(string.Format("ARGS: {0}", psi.Arguments));
+
             psi.UseShellExecute = false;
             psi.RedirectStandardOutput = true;
             psi.CreateNoWindow = true;
@@ -57,7 +67,12 @@ namespace CraftyPucker.Data.Stream
                 Console.WriteLine(line);
                 if (line.StartsWith("error:"))
                 {
+                    logger.Error(line);
                     throw new StreamException(line);
+                }
+                else
+                {
+                    logger.Debug(line);
                 }
             }
 

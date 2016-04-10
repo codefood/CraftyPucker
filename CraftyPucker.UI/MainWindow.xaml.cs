@@ -11,6 +11,9 @@ namespace CraftyPucker.UI
         public MainWindow()
         {
             InitializeComponent();
+
+
+
             _gamesRepo = new GamesViewModel();
             this.DataContext = _gamesRepo;
         }
