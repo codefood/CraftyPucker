@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CraftyPucker.Data.Stream.Parameters;
+using CraftyPucker.Data.Stream.Locators;
 
 namespace CraftyPucker.Data.Stream
 {

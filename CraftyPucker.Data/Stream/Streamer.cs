@@ -1,4 +1,5 @@
-﻿using CraftyPucker.Data.UrlGenerators;
+﻿using CraftyPucker.Data.Stream.Locators;
+using CraftyPucker.Data.UrlGenerators;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -36,7 +37,7 @@ namespace CraftyPucker.Data.Stream
         {
             var argumentBuilder = new ArgumentBuilder();
             var psi = new ProcessStartInfo();
-            psi.FileName = @"C:\Program Files (x86)\Livestreamer\livestreamer.exe";
+            psi.FileName = LiveStreamerLocator.Locate();
             
             psi.Arguments = argumentBuilder.Build(args, CDN, mediaFeed);
             psi.UseShellExecute = false;

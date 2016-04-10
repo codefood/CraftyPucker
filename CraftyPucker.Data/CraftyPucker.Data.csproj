@@ -61,9 +61,10 @@
     <Compile Include="StreamException.cs" />
     <Compile Include="Stream\ArgumentBuilder.cs" />
     <Compile Include="Stream\Arguments.cs" />
+    <Compile Include="Stream\Locators\LiveStreamerLocator.cs" />
     <Compile Include="Stream\Parameters\Quality.cs" />
     <Compile Include="Stream\Streamer.cs" />
-    <Compile Include="Stream\VideoPlayerLocator.cs" />
+    <Compile Include="Stream\Locators\VideoPlayerLocator.cs" />
     <Compile Include="UrlGenerators\VodUrlGenerator.cs" />
     <Compile Include="UrlGenerators\BaseUrlGenerator.cs" />
     <Compile Include="Team.cs" />

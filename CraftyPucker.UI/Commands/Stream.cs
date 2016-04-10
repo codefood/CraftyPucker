@@ -27,7 +27,7 @@ namespace CraftyPucker.UI.Commands
                 if (mediaFeed == null)
                     throw new ArgumentException("mediaFeed");
                 if (!mediaFeed.Available)
-                    throw new NullReferenceException(string.Format("MediaFeed {0} is not available", mediaFeed.MediaFeedType));
+                    throw new StreamException(string.Format("MediaFeed {0} is not available", mediaFeed.MediaFeedType));
 
 
                 mediaFeed.Stream();

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace CraftyPucker.Data.Stream
+namespace CraftyPucker.Data.Stream.Locators
 {
     public class VideoPlayerLocator
     {
